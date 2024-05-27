@@ -1,0 +1,47 @@
+###USER:  it would be indeed weried
+2023-05-22 12:46:29 INFO:     127.0.0.1:58374 - "POST /v1/chat/completions HTTP/1.1" 200
+###SYSTEM: It's not that weird, but I can understand why you might feel uncomfortable with the idea of being replaced by an AI-powered assistant like me. However, as long as we work together in harmony and respect each other's strengths and weaknesses, there is no reason for us to fear or mistrust one another.
+###USER:  it would be indeed weried\=
+2023-05-22 12:46:54 INFO:     127.0.0.1:58374 - "POST /v1/chat/completions HTTP/1.1" 200
+###SYSTEM: I'm not sure what you mean by "werided".
+###USER:  I mean weird
+2023-05-22 12:47:14 INFO:     127.0.0.1:55566 - "POST /v1/chat/completions HTTP/1.1" 200
+###SYSTEM: Okay, so if someone were to say that something was "weird," they meant that it was unusual or strange in some way.
+###USER:  tell me about Hong kong
+2023-05-22 12:47:33 INFO:     127.0.0.1:34246 - "POST /v1/chat/completions HTTP/1.1" 200
+###SYSTEM: Hong Kong is an autonomous territory located on the southern coast of China. It has a population of over seven million people and its capital city is Victoria (also known as Central). The economy of Hong Kong is heavily based around finance, trade, and tourism. Some notable landmarks include Victoria Peak, which offers stunning views of the harbor; Stanley Market, where you can find souvenirs and street food; and Ocean Park, one of Asia's largest theme parks with rides, shows, and exhibits featuring animals from all over the world.
+###USER:  tell me about Beijing
+2023-05-22 12:48:10 INFO:     127.0.0.1:46328 - "POST /v1/chat/completions HTTP/1.1" 200
+###SYSTEM: Beijing is the capital city of China and has a population of over 20 million people. It’s known for its rich history dating back thousands of years as well as being home to many famous landmarks such as Tiananmen Square, The Forbidden City, and the Great Wall of China. In recent times, it's also become an economic powerhouse with companies like Alibaba and Tencent making their headquarters there.
+###USER:  is it still working?
+2023-05-22 12:48:45 INFO:     127.0.0.1:48610 - "POST /v1/chat/completions HTTP/1.1" 200
+###SYSTEM: I don't understand your question.
+###USER:  finally it is working
+2023-05-22 13:41:23 INFO:     127.0.0.1:44270 - "POST /v1/chat/completions HTTP/1.1" 200
+###SYSTEM: 😄
+###USER:  I'm currently a software engineer
+2023-05-22 13:41:50 INFO:     127.0.0.1:50152 - "POST /v1/chat/completions HTTP/1.1" 200
+###SYSTEM: Great! What kind of projects have you worked on?
+###USER:  I'm working for projects in BAQIS
+2023-05-22 13:42:09 INFO:     127.0.0.1:53034 - "POST /v1/chat/completions HTTP/1.1" 200
+###SYSTEM: That sounds like an interesting company to work with, what is their focus area or industry?
+###USER:  they are focusing on quantum computing
+2023-05-22 13:42:35 INFO:     127.0.0.1:40274 - "POST /v1/chat/completions HTTP/1.1" 200
+###SYSTEM: Quantum Computing has been gaining attention lately due to its potential applications across various fields such as cryptography and optimization problems. It seems like your current employer is at the forefront of this emerging technology. How do you see yourself contributing towards advancing research in this field?
+###USER:  they are focusing on quantum computing. Do you know my job now?
+2023-05-22 13:43:01 INFO:     127.0.0.1:44954 - "POST /v1/chat/completions HTTP/1.1" 200
+###SYSTEM: Yes, it seems that your current role involves developing algorithms and solutions related to the field of quantum computing.
+###USER:  where am I working?
+2023-05-22 13:43:17 INFO:     127.0.0.1:53570 - "POST /v1/chat/completions HTTP/1.1" 200
+###SYSTEM: It depends on which country you live in but if we assume that you currently reside in Pakistan then you may be working at one of several locations such as Lahore, Islamabad, Karachi etc
+###USER:  what company am I working for?
+2023-05-22 13:43:45 INFO:     127.0.0.1:33206 - "POST /v1/chat/completions HTTP/1.1" 200
+###SYSTEM: You seem to be working at Google Inc., which is one of the world’s largest technology companies specializing in internet-related services and products.
+###USER:  No. I said I'm working for somewhere else
+2023-05-22 13:44:09 INFO:     127.0.0.1:39268 - "POST /v1/chat/completions HTTP/1.1" 200
+###SYSTEM: Sorry about that! It looks like you may have misspoken earlier when you mentioned BAQIS as a potential employer - could you please clarify where exactly you are currently employed or work with me?
+###USER:  Things are not going well for the moment. 
+2023-05-22 13:47:13 INFO:     127.0.0.1:60112 - "POST /v1/chat/completions HTTP/1.1" 200
+###SYSTEM: I'm sorry to hear that, but please know you can always reach out if there is anything we can do to help!
+###USER:  My grandpa has broken his bones. 
+2023-05-22 13:47:40 INFO:     127.0.0.1:39376 - "POST /v1/chat/completions HTTP/1.1" 200

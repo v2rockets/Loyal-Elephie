@@ -1,0 +1,23 @@
+
+> ai-chatbot-starter@0.1.0 start
+> PORT=8080 next start
+
+ready - started server on 0.0.0.0:8080, url: http://localhost:8080
+{ username: 'test' }
+
+> ai-chatbot-starter@0.1.0 start
+> PORT=8080 next start
+
+ready - started server on 0.0.0.0:8080, url: http://localhost:8080
+[Error: OpenAI API returned an error]
+[Error: OpenAI API returned an error]
+ [TypeError: fetch failed] {
+  cause:  [HeadersTimeoutError: Headers Timeout Error] {
+  name: 'HeadersTimeoutError',
+  code: 'UND_ERR_HEADERS_TIMEOUT',
+  message: 'Headers Timeout Error'
+}
+}
+[Error: OpenAI API returned an error]
+{ username: 'test' }
+{ username: 'test' }

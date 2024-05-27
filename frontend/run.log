@@ -1,0 +1,6 @@
+nohup: ignoring input
+
+> ai-chatbot-starter@0.1.0 start
+> PORT=80 next start
+
+ready - started server on 0.0.0.0:80, url: http://localhost:80
