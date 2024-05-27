@@ -1,4 +1,3 @@
-[mage]
 # 🐘 Introducing Loyal Elephie: Your Trusty AI Companion and Episodic Memory Manager! 🧠
 <p align="center">
   <img src=".public/image.png" alt="Your image description" width="200" style="display: block; margin: 0 auto;">
@@ -21,11 +20,15 @@ Loyal Elephie supports both open and proprietary LLM APIs in the OpenAI API form
 
 ## Screenshots 
 *Meta-Llama-3-70B-Instruct.Q4_K_S.gguf is used when capturing the below screenshots*
+
 ![](.public/screenshot1.png)
+
 ![](.public/screenshot2.png)
 
-With [SilverBulletMd](https://github.com/silverbulletmd/silverbullet), you can edit a note on the browser and then let Loyal Elephie rememebers it!
+
 ![](.public/screenshot4.png)
+With [SilverBulletMd](https://github.com/silverbulletmd/silverbullet), you can edit a note on the browser and then let Loyal Elephie rememebers it!
+
 ![](.public/screenshot3.png)
 
 The UI is modified from https://github.com/mckaywrigley/chatbot-ui-lite, credits to the author Mckay Wrigley!
