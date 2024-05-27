@@ -27,7 +27,7 @@ Loyal Elephie supports both open and proprietary LLM APIs in the OpenAI API form
 
 
 ![](.public/screenshot4.png)
-With [SilverBulletMd](https://github.com/silverbulletmd/silverbullet), you can edit a note on the browser and then let Loyal Elephie rememebers it!
+With [SilverBulletMd](https://github.com/silverbulletmd/silverbullet), you can edit a note on the browser and then let Loyal Elephie rememeber it!
 
 ![](.public/screenshot3.png)
 
@@ -48,8 +48,9 @@ npm i
 ```
 
 **3. Configure Login Users**
+
+frontend/users.json
 ```json
-# frontend/users.json
 [{
     "username":"admin",
     "password":"admin"
@@ -64,7 +65,6 @@ pip install requirements.txt
 
 **5. Configure Backend Settings**
 
-edit backend/users.json
 ```python
 # backend/settings.py
 
