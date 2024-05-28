@@ -16,7 +16,7 @@
 
 5. **📝 (Optional) Markdown Editor Integration:** Connect with online Markdown editors to view the original referred document during chats and experience real-time LLM knowledge integration after editing your notes online. ✍️
 
-Loyal Elephie supports both open and proprietary LLM APIs in the OpenAI API format. 
+Loyal Elephie supports both open and proprietary LLMs and embeddings serving as OpenAI compatible APIs. 
 
 ## Screenshots 
 *Meta-Llama-3-70B-Instruct.Q4_K_S.gguf is used when capturing the below screenshots*
@@ -67,6 +67,7 @@ pip install requirements.txt
 
 ```python
 # backend/settings.py
+NICK_NAME = 'Peter' # This is your nick name. Make sure to set it at the beginning and don't change so that LLM will not get confused.
 
 CHAT_BASE_URL = 'https://api.openai.com/v1' # Modify to your OpenAI compatible API url
 CHAT_API_KEY = 'your-api-key'
@@ -89,4 +90,10 @@ python app.py
 * use "Save" button to save the current conversation into Loyal Elephie's memory.
 * use "Reset" button to clear the current conversation (it won't affect save status), it's the same as refreshing page.
 * click on the titles in "Reference" to navigate to the corresponding Mardown note (but SilverBulletMd has to be hosted and configured).
+
+Some of the workable local LLMs tested:
+* OpenHermes-2.5-Mistral-7B
+* Phi-3-mini-4k-instruct
+* Mixtral-8x7B-Instruct-v0.1
+* Meta-Llama-3-70B-Instruct (Best so far) 
 
