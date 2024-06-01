@@ -1,4 +1,4 @@
-# 🐘 Introducing Loyal Elephie: Your Trusty AI Companion and Episodic Memory Manager! 🧠
+# 🐘 Loyal Elephie: Your Trusty Memory-enabled AI Companion 🧠
 <p align="center">
   <img src=".public/image.png" alt="Your image description" width="200" style="display: block; margin: 0 auto;">
 </p>
@@ -6,7 +6,7 @@
 
 ## Features
 
-1. **🎛️ Controllable Memory:** Take control of Loyal Elephie's memory! You decide which moments to save, and you can easily edit the context as needed. 📝
+1. **🎛️ Controllable Memory:** Take control of Loyal Elephie's memory! You decide which moments to save, and you can easily edit the context as needed. It is your second-brain for episodic memory. 📝
 
 2. **🔍 Hybrid Search:** Experience the powerful combination of Chroma and BM25 for efficient searches! It's also optimized for handling date-based queries. 📅
 
