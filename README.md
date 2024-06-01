@@ -12,7 +12,7 @@
 
 3. **🔒 Secure Web Access:** With a built-in login feature, only authorized users can access your AI companion, ensuring your conversations remain private and secure over the internet. 🛡️
 
-4. **🌐 Simplified Agent:** No function-calling required. Loyal Elephie is optimized for cached generation and works smoothly with many top-notch local LLMs running with Llama.cpp or ExllamaV2. 💬
+4. **🌐 Streamlined LLM Agent:** No function-calling required. Loyal Elephie is optimized for cached generation and works smoothly with great local LLMs running on Llama.cpp or ExllamaV2. 💬
 
 5. **📝 (Optional) Markdown Editor Integration:** Connect with online Markdown editors to view the original referred document during chats and experience real-time LLM knowledge integration after editing your notes online. ✍️
 
@@ -89,11 +89,11 @@ python app.py
 # Usage Tips
 * use "Save" button to save the current conversation into Loyal Elephie's memory.
 * use "Reset" button to clear the current conversation (it won't affect save status), it's the same as refreshing page.
-* click on the titles in "Reference" to navigate to the corresponding Mardown note (but SilverBulletMd has to be hosted and configured).
+* click on the titles in "Reference" to navigate to the corresponding Markdown note (but SilverBulletMd or other web Markdown editors has to be hosted and configured).
 
 Some of the workable local LLMs tested:
 * OpenHermes-2.5-Mistral-7B
-* Phi-3-mini-4k-instruct
+* Phi-3-Medium-4k-instruct
 * Mixtral-8x7B-Instruct-v0.1
 * Meta-Llama-3-70B-Instruct (Best so far) 
 
