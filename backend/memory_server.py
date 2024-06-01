@@ -13,7 +13,7 @@ from pydantic import BaseModel, Field
 from sse_starlette.sse import EventSourceResponse
 
 import llama_types as llama_cpp
-from llm_utils import client, MODEL_NAME
+from llm_utils import client
 from retrivial_ranking import search_context, search_context_with_time
 from settings import *
 
@@ -276,7 +276,7 @@ async def create_chat_completion(
             if state==OutputState.Input:
                 chain_length += 1
                 completion_or_chunks = client.chat.completions.create(
-                    model=MODEL_NAME,
+                    model=CHAT_MODEL_NAME,
                     messages=new_messages,
                     temperature=0.1,
                     max_tokens=kwargs['max_tokens'],

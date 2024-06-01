@@ -14,8 +14,8 @@ CHAT_PATH = '../md_website/chat_history'
 NOTE_PATH = '../md_website/notes'
 
 # If your MarkDown notebook is serving with HTTPS, setup this URL so that you can click into the notebook page attached on reference.
-CHAT_URL = 'https://localhost/chat_history/' 
-NOTE_URL = 'https://localhost/notes/'
+CHAT_URL = 'https://localhost:3000/chat_history/' 
+NOTE_URL = 'https://localhost:3000/notes/'
 
 # ---Prompts--- #
 SUMMARY_PROMPT='''You are the "ASSISTANT" and your task is to take a detailed note about {NICK_NAME} from a conversation with you. You should focus on observations on {NICK_NAME}'s situation and special things mentioned by him but you doesn't need to include assistant's (your own) words unless addressed by {NICK_NAME}. Don't write a title and don't write anything else before or after the note.'''

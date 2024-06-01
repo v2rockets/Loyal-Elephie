@@ -6,7 +6,7 @@ from chromadb import EmbeddingFunction
 from chromadb.config import Settings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-from src.llm_utils import get_embeddings
+from llm_utils import get_embeddings
 
 ROOT_FOLDER = 'digests'
 
