@@ -46,6 +46,7 @@ git clone https://github.com/v2rockets/Loyal-Elephie.git
 **2. Install Frontend Requirments**
 
 ```bash
+cd frontend
 npm i
 ```
 
@@ -62,7 +63,8 @@ frontend/users.json
 **4. Install Backend Requirents**
 
 ```bash
-pip install requirements.txt
+cd backend
+pip install -r requirements.txt
 ```
 
 **5. Configure Backend Settings**
@@ -80,11 +82,13 @@ CHAT_MODEL_NAME = "gpt-3.5-turbo"
 
 frontend:
 ```bash
+cd frontend
 npm run build
 npm run start
 ```
 backend:
 ```bash
+cd backend
 python app.py
 ```
 
