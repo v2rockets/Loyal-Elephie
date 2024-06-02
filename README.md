@@ -18,6 +18,8 @@
 
 Loyal Elephie supports both open and proprietary LLMs and embeddings serving as OpenAI compatible APIs. 
 
+![](.public/architecture.png)
+
 ## Screenshots 
 *Meta-Llama-3-70B-Instruct.Q4_K_S.gguf is used when capturing the below screenshots*
 
