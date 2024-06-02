@@ -49,8 +49,9 @@ def update_corpus():
                 i += 1
                 
         # Preprocess the corpus
-        processed_corpus = [preprocess(doc) for doc in corpus]
-        bm25 = BM25Okapi(processed_corpus, k1=1.5, b=0.75, epsilon=0.25)
+		if corpus:
+			processed_corpus = [preprocess(doc) for doc in corpus]
+			bm25 = BM25Okapi(processed_corpus, k1=1.5, b=0.75, epsilon=0.25)
     print("bm25 corpus updated")
 
 def standardize(lst):
@@ -62,6 +63,8 @@ def standardize(lst):
 
 def get_norm_bm25_scores(query, doc_id_list):
     with lock:
+	    if not doc_id_list:
+		    return []
         query = preprocess(query)[::-1]
         query = list(set(query))
         # Get scores
@@ -73,6 +76,8 @@ def get_norm_bm25_scores(query, doc_id_list):
     
 def get_avg_bm25_scores(query, doc_id_list):
     with lock:
+	    if not doc_id_list:
+		    return []
         query = preprocess(query)[::-1]
         query = list(set(query))
         # Get scores
