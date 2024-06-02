@@ -12,9 +12,9 @@
 
 3. **🔒 Secure Web Access:** With a built-in login feature, only authorized users can access your AI companion, ensuring your conversations remain private and secure over the internet. 🛡️
 
-4. **🌐 Streamlined LLM Agent:** No function-calling required. Loyal Elephie is optimized for cached generation and works smoothly with great local LLMs running on Llama.cpp or ExllamaV2. 💬
+4. **🤖 Streamlined LLM Agent:** Loyal Elephie uses XML syntax with no function-calling required. It is optimized for cached generation and works smoothly with great local LLMs running on Llama.cpp or ExllamaV2. 💬
 
-5. **📝 (Optional) Markdown Editor Integration:** Connect with online Markdown editors to view the original referred document during chats and experience real-time LLM knowledge integration after editing your notes online. ✍️
+5. **📝 (Optional) Markdown Editor Integration:** Connect with online Markdown editors to view the original referred document during chats and experience real-time LLM knowledge integration after editing your notes online. 🌐
 
 Loyal Elephie supports both open and proprietary LLMs and embeddings serving as OpenAI compatible APIs. 
 
@@ -94,12 +94,13 @@ python app.py
 
 # Usage Tips
 * use "Save" button to save the current conversation into Loyal Elephie's memory.
-* use "Reset" button to clear the current conversation (it won't affect save status), it's the same as refreshing page.
-* click on the titles in "Reference" to navigate to the corresponding Markdown note (but SilverBulletMd or other web Markdown editors has to be hosted and configured).
+* use "Reset" button to clear the current conversation (not affecting saving status, the same as refreshing page)
+* click on the titles in "Reference" to navigate to the corresponding Markdown notes (but SilverBulletMd or other web Markdown editor has to be hosted and configured).
 
 Some of the workable local LLMs tested:
 * OpenHermes-2.5-Mistral-7B
 * Phi-3-Medium-4k-instruct
 * Mixtral-8x7B-Instruct-v0.1
+* c4ai-command-r-v01
 * Meta-Llama-3-70B-Instruct (Best so far) 
 
