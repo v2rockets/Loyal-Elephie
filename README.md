@@ -6,13 +6,13 @@
 
 ## Features
 
-1. **🎛️ Controllable Memory:** Take control of Loyal Elephie's memory! You decide which moments to save, and you can easily edit the context as needed. It is your second-brain for episodic memory. 📝
+1. **🎛️ Controllable Memory:** Take control of Loyal Elephie's memory! You decide which moments to save, and you can easily edit the context as needed. It is your second-brain for episodic memory. ✍️
 
 2. **🔍 Hybrid Search:** Experience the powerful combination of Chroma and BM25 for efficient searches! It's also optimized for handling date-based queries. 📅
 
 3. **🔒 Secure Web Access:** With a built-in login feature, only authorized users can access your AI companion, ensuring your conversations remain private and secure over the internet. 🛡️
 
-4. **🤖 Streamlined LLM Agent:** Loyal Elephie uses XML syntax with no function-calling required. It is optimized for cached generation and works smoothly with great local LLMs running on Llama.cpp or ExllamaV2. 💬
+4. **🤖 Streamlined LLM Agent:** Loyal Elephie uses XML syntax with no function-calling required. It is also optimized for cached generation and works smoothly with great local LLMs using Llama.cpp or ExllamaV2. 💬
 
 5. **📝 (Optional) Markdown Editor Integration:** Connect with online Markdown editors to view the original referred document during chats and experience real-time LLM knowledge integration after editing your notes online. 🌐
 
@@ -97,7 +97,7 @@ python app.py
 # Usage Tips
 * use "Save" button to save the current conversation into Loyal Elephie's memory.
 * use "Reset" button to clear the current conversation (not affecting saving status, the same as refreshing page)
-* click on the titles in "Reference" to navigate to the corresponding Markdown notes (but SilverBulletMd or other web Markdown editor has to be hosted and configured).
+* click on the titles in "Reference" to navigate to the corresponding Markdown notes (but SilverBulletMd or another web Markdown editor has to be hosted and configured).
 
 Some of the workable local LLMs tested:
 * OpenHermes-2.5-Mistral-7B
@@ -105,4 +105,6 @@ Some of the workable local LLMs tested:
 * Mixtral-8x7B-Instruct-v0.1
 * c4ai-command-r-v01
 * Meta-Llama-3-70B-Instruct (Best so far) 
+
+For those who need hand-on local embedding API, an embedding server example is added to "external/embedding_server.py"
 
