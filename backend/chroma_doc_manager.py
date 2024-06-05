@@ -10,6 +10,96 @@ from llm_utils import get_embeddings
 
 ROOT_FOLDER = 'digests'
 
+# ---------------------------------------------------------------------------
+# Monkey patch ChromaDB's validate_where function to support string comparison
+# ---------------------------------------------------------------------------
+# ChromaDB doesn't support string comparison for the $gte/$lte operators by default.
+# This code overrides the default validate_where function to add this functionality
+# without modifying the original ChromaDB source code.
+def custom_validate_where(where: dict) -> dict:
+    """
+    Custom validation function to allow string comparison for the $gte operator.
+    """
+    if not isinstance(where, dict):
+        raise ValueError(f"Expected where to be a dict, got {where}")
+    if len(where) != 1:
+        raise ValueError(f"Expected where to have exactly one operator, got {where}")
+    for key, value in where.items():
+        if not isinstance(key, str):
+            raise ValueError(f"Expected where key to be a str, got {key}")
+        if (
+            key != "$and"
+            and key != "$or"
+            and key != "$in"
+            and key != "$nin"
+            and not isinstance(value, (str, int, float, dict))
+        ):
+            raise ValueError(
+                f"Expected where value to be a str, int, float, or operator expression, got {value}"
+            )
+        if key == "$and" or key == "$or":
+            if not isinstance(value, list):
+                raise ValueError(
+                    f"Expected where value for $and or $or to be a list of where expressions, got {value}"
+                )
+            if len(value) <= 1:
+                raise ValueError(
+                    f"Expected where value for $and or $or to be a list with at least two where expressions, got {value}"
+                )
+            for where_expression in value:
+                custom_validate_where(where_expression)
+        # Value is an operator expression
+        if isinstance(value, dict):
+            # Ensure there is only one operator
+            if len(value) != 1:
+                raise ValueError(
+                    f"Expected operator expression to have exactly one operator, got {value}"
+                )
+
+            for operator, operand in value.items():
+                # Allow strings for gt, gte, lt, lte
+                if operator in ["$gt", "$gte", "$lt", "$lte"]:
+                    if not isinstance(operand, (str, int, float)):
+                        raise ValueError(
+                            f"Expected operand value to be a str, int, or float for operator {operator}, got {operand}"
+                        )
+                if operator in ["$in", "$nin"]:
+                    if not isinstance(operand, list):
+                        raise ValueError(
+                            f"Expected operand value to be a list for operator {operator}, got {operand}"
+                        )
+                if operator not in [
+                    "$gt",
+                    "$gte",
+                    "$lt",
+                    "$lte",
+                    "$ne",
+                    "$eq",
+                    "$in",
+                    "$nin",
+                ]:
+                    raise ValueError(
+                        f"Expected where operator to be one of $gt, $gte, $lt, $lte, $ne, $eq, $in, $nin, "
+                        f"got {operator}"
+                    )
+
+                if not isinstance(operand, (str, int, float, list)):
+                    raise ValueError(
+                        f"Expected where operand value to be a str, int, float, or list of those types, got {operand}"
+                    )
+                if isinstance(operand, list) and (
+                    len(operand) == 0
+                    or not all(isinstance(x, type(operand[0])) for x in operand)
+                ):
+                    raise ValueError(
+                        f"Expected where operand value to be a non-empty list, and all values to be of the same type "
+                        f"got {operand}"
+                    )
+    return where
+
+chromadb.api.types.validate_where = custom_validate_where
+# ---------------------------------------------------------------------------
+
 class EmbeddingFunction(EmbeddingFunction):
     def __call__(self, input):
         return get_embeddings(input)
