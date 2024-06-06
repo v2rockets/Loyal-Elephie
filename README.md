@@ -22,6 +22,11 @@ Loyal Elephie supports both open and proprietary LLMs and embeddings serving as 
 
 Warning: This project was originally designed for **Linux**. Compatibility with Windows or macOS has not been fully tested. You are welcome to report any issues, but they may not be resolved immediately.
 
+### Recent Plans
+* refractor a little bit about the retrieval part
+* make bm25 support multiple languages
+* support multiple users for a single single server
+
 ## Screenshots 
 *Meta-Llama-3-70B-Instruct.Q4_K_S.gguf is used when capturing the below screenshots*
 
