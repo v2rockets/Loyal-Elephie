@@ -1,15 +1,9 @@
 import os
-import json
-from typing import List, Optional, Literal, Union, Iterator, Dict
-from typing_extensions import TypedDict
-
-import llama_cpp
+from typing import List, Optional, Union
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
-from pydantic_settings import BaseSettings
-from sse_starlette.sse import EventSourceResponse
+from pydantic import BaseModel
 from sentence_transformers import SentenceTransformer
 
 app = FastAPI(
@@ -92,4 +86,5 @@ if __name__ == "__main__":
     import os
     import uvicorn
 
-    uvicorn.run(app, host=os.getenv("HOST", "0.0.0.0"), port=os.getenv("PORT", 8001))
+    uvicorn.run(app, host="0.0.0.0", port=os.getenv("EMBEDDING_PORT", 8001))
+
