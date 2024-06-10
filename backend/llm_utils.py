@@ -77,7 +77,7 @@ def digest_markdown(title, path):
         page_content = simplify_markdown_headers(doc.page_content.strip(), level)
         content = f"---Begin Note---\nHeaders: {headers}\n{page_content}\n---End Note---"
         summary = chat([
-            {"role": "system", "content": SUMMARY_NOTE_PROMPT},
+            {"role": "system", "content": SUMMARY_NOTE_PROMPT.replace("{NICK_NAME}", NICK_NAME)},
             {"role": "user", "content": content}]
         )
         # digest = f"# {headers}\n{summary}"
@@ -93,7 +93,7 @@ def digest_simple(title, path):
             tag = tag.lstrip('#').strip()
         text = f"---{title}---\n{s}"
         summary = chat([
-            {"role": "system", "content": SUMMARY_PROMPT},
+            {"role": "system", "content": SUMMARY_PROMPT.replace("{NICK_NAME}", NICK_NAME)},
             {"role": "user", "content": text}]).strip()
         print(">>>", tag)
         return summary, tag

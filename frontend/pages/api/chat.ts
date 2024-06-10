@@ -9,7 +9,7 @@ export const config = {
 const handler = async (req: Request): Promise<Response> => {
   try {
     const cookies = req.headers.get("cookie") ? parse(req.headers.get("cookie")!) : {};
-    // Now you can access the cookies like this:
+    // get the token from cookies:
     const token = cookies["Authorization"];
 
     const { messages } = (await req.json()) as {
@@ -20,7 +20,8 @@ const handler = async (req: Request): Promise<Response> => {
     let charCount = 0;
     let messagesToSend = [];
 
-    for (let i = 0; i < messages.length; i++) {
+    // Collect the most recent messages that fit within the character limit, preserving their original order
+    for (let i = messages.length - 1; i >= 0; i--) {
       const message = messages[i];
       if (charCount + message.content.length > charLimit) {
         break;
@@ -28,6 +29,8 @@ const handler = async (req: Request): Promise<Response> => {
       charCount += message.content.length;
       messagesToSend.push(message);
     }
+    
+    messagesToSend.reverse();
 
     const stream = await OpenAIStream(messagesToSend, token);
 
