@@ -107,9 +107,4 @@ Some of the workable local LLMs tested:
 * c4ai-command-r-v01
 * Meta-Llama-3-70B-Instruct (Best so far) 
 
-For those who need hand-on local embedding API, an embedding server example is added to "external/embedding_server.py"
-
-### Recent Plans
-* refractor a little bit about the retrieval part
-* make bm25 support multiple languages
-* support multiple users for a single server
+For those who need hand-on local embedding API, an embedding server example is added to "external_example".
