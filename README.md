@@ -20,7 +20,7 @@ Loyal Elephie supports both open and proprietary LLMs and embeddings serving as 
 
 ![](.public/architecture.png)
 
-Warning: This project was originally designed for **Linux**. Compatibility with Windows or macOS has not been fully tested. You are welcome to report any issues, but they may not be resolved immediately.
+Warning: This project was originally designed for **Linux**. Compatibility with Windows or macOS has not been fully tested. If you are using Windows, I strongly recommend you to run the backend server in **WSL**.
 
 
 ## Screenshots 

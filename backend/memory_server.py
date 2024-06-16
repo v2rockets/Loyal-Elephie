@@ -214,7 +214,7 @@ async def create_chat_completion(
             if len(contents) > 1:
                 # reference = contents[1]
                 new_messages.append({'role':'system', 'content': f"Your have searched the memory but the result content is hidden. If you need the details include relevant topics in SEARCH block again."})
-		    new_messages.append({'role':'assistant', 'content': f"<REPLY>{content}</REPLY>"})
+            new_messages.append({'role':'assistant', 'content': f"<REPLY>{content}</REPLY>"})
         else:
             new_messages.append(messages[i].copy())
 
