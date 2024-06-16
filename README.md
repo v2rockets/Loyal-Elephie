@@ -12,7 +12,7 @@
 
 3. **🔒 Secure Web Access:** With a built-in login feature, only authorized users can access your AI companion, ensuring your conversations remain private and secure over the internet. 🛡️
 
-4. **🤖 Streamlined LLM Agent:** Loyal Elephie uses XML syntax with no function-calling required. It is also optimized for cached generation and works smoothly with great local LLMs using Llama.cpp or ExllamaV2. 💬
+4. **🤖 Streamlined LLM Agent:** Loyal Elephie uses XML syntax with no function-calling required. It is also optimized for less token usages and works smoothly with great local LLMs using Llama.cpp or ExllamaV2. 💬
 
 5. **📝 (Optional) Markdown Editor Integration:** Connect with online Markdown editors to view the original referred document during chats and experience real-time LLM knowledge integration after editing your notes online. 🌐
 
