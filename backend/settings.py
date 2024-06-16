@@ -17,6 +17,14 @@ NOTE_PATH = '../md_website/notes'
 CHAT_URL = 'https://localhost:3000/chat_history/' 
 NOTE_URL = 'https://localhost:3000/notes/'
 
+
+# ---Retrieval Settings--- #
+RETRIEVAL_TOKEN_LIMIT = 2048  # Maximum token limit for the retrieved contexts
+RETRIEVAL_NUM_CHOICES = 10  # Number of top choices or results to retrieve for each query
+RETRIEVAL_MIN_VALUE = 0.25  # Minimum threshold for the value of retrieved documents
+BM25_WEIGHT = 0.1  # Weight given to the BM25 score when adjusting the final score of a document
+
+
 # ---Prompts--- #
 SUMMARY_PROMPT='''You are the "ASSISTANT" and your task is to take a detailed note about {NICK_NAME} from a conversation with you. You should focus on observations on {NICK_NAME}'s situation and special things mentioned by him but you doesn't need to include assistant's (your own) words unless addressed by {NICK_NAME}. Don't write a title and don't write anything else before or after the note.'''
 SUMMARY_NOTE_PROMPT='''Your task is to write a comprehensive summary about the Note provided by the user {NICK_NAME}. The summary should be written as a bullet list of self-contained items without a title. Don't write anything else before or after the summary.'''

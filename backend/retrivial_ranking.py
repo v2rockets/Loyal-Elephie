@@ -6,6 +6,7 @@ from dateparser.search import search_dates
 from chroma_doc_manager import doc_manager
 from llm_utils import count_token
 from bm25_api import get_norm_bm25_scores, get_avg_bm25_scores
+from settings import *
 
 class ConversationContext():
     def __init__(self, doc_id, doc_content, score, doc_time=None, match_str=None):
@@ -42,7 +43,7 @@ def doc_time_dict(associations):
             time_dict[doc_id] = doc_time
     return time_dict
 
-def search_context(queries, n_choices = 8):
+def search_context(queries):
     query_strings = queries
     query_times = []
     for query_str in queries:
@@ -52,7 +53,7 @@ def search_context(queries, n_choices = 8):
             date_str, date = dates[-1]
             query_str = query_str.replace(date_str, "").strip() # remove date from the query string, could be done otherwise
         query_times.append(date)
-    query_result = doc_manager.query_by_strings(query_strings, n_results=n_choices)
+    query_result = doc_manager.query_by_strings(query_strings, n_results=RETRIEVAL_NUM_CHOICES)
     def cal_score(dist):
         norm = sqrt(len(queries))
         return (1/(dist+.01)-1)/norm
@@ -87,20 +88,18 @@ def search_context(queries, n_choices = 8):
 
     full_doc_score = 1.
     # full_doc_ids = [doc_id for doc_id, _, score in associations if score > full_doc_score]
-    
-    agg_min_value = 0.25
 
     doc_ids = [i[0] for i in agg_list]
     docs = doc_manager.get_document_by_ids(doc_ids)
 
     ctx_list = []
-    token_limit = 1024
+    token_limit = RETRIEVAL_TOKEN_LIMIT
     for (doc_id, score), doc in zip(agg_list,docs):
         if not doc: # None means doc is not found
             continue
         ctx = ConversationContext(doc_id, doc, score, time_dict[doc_id])
         print(token_limit, ctx)
-        if token_limit > ctx.tokens and (score > full_doc_score or ctx.value > agg_min_value):
+        if token_limit > ctx.tokens and (score > full_doc_score or ctx.value > RETRIEVAL_MIN_VALUE):
             ctx_list.append(ctx)
             token_limit -= ctx.tokens
     
@@ -166,8 +165,8 @@ def get_all_associations(queries, n_choices):
     # print(all_associations)
     return all_associations
 
-def search_context_with_time(queries, n_choices = 10):
-    all_associations = get_all_associations(queries, n_choices)
+def search_context_with_time(queries):
+    all_associations = get_all_associations(queries, RETRIEVAL_NUM_CHOICES)
     score_dict = aggregate_scores(all_associations)
     time_dict = doc_time_dict(all_associations)
     
@@ -175,8 +174,6 @@ def search_context_with_time(queries, n_choices = 10):
 
     full_doc_score = 1.
     # full_doc_ids = [doc_id for doc_id, _, score in associations if score > full_doc_score]
-    
-    agg_min_value = 0.25
 
     doc_ids = [i[0] for i in agg_list]
     docs = doc_manager.get_document_by_ids(doc_ids)
@@ -184,15 +181,15 @@ def search_context_with_time(queries, n_choices = 10):
     # min_bm25_scores = min(bm25_scores)
 
     ctx_list = []
-    token_limit = 2048
+    token_limit = RETRIEVAL_TOKEN_LIMIT
     for (doc_id, score),doc,bm25_score in zip(agg_list,docs,bm25_scores):
         if not doc: # None means doc is not found
             continue
         # score += (bm25_score - min_bm25_scores)/10
-        score += bm25_score/10
+        score += bm25_score*BM25_WEIGHT
         ctx = ConversationContext(doc_id, doc, score, time_dict[doc_id])
         print(token_limit, ctx)
-        if token_limit > ctx.tokens and (score > full_doc_score or ctx.value > agg_min_value):
+        if token_limit > ctx.tokens and (score > full_doc_score or ctx.value > RETRIEVAL_MIN_VALUE):
             ctx_list.append(ctx)
             token_limit -= ctx.tokens
     
