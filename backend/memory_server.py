@@ -121,6 +121,12 @@ class OutputState(Enum):
     Finish = 3
     ToSearch = 4
     ToReply = 5
+        
+def generate_system_message(content, use_system = MULTILPLE_SYSTEM_PROMPTS):
+    if use_system:
+        return {"role":"system", "content": content}
+    else:
+        return {"role":"user", "content": "system:\n" + content}
 
 api_key_header = APIKeyHeader(name="Authorization", auto_error=False)
 
@@ -203,7 +209,7 @@ async def create_chat_completion(
         {'role':'user','content':'I don\'t remember how Loyal Elephie was created.'}, 
         {'role':'assistant','content':f'<THINK>To assist {NICK_NAME}, I need to search my memory for the questions:\nHow Loyal Elephie was created?\nHow AI secretary like Loyal Elephie was developed? </THINK>'},
         {'role':'assistant','content':f'<SEARCH>\nLoyal Elephie created detail\n{NICK_NAME} AI secretary develop</SEARCH>'},
-        {'role':'system','content':f'---begin search result---\n<context_1 title="Techical notes">\n{NICK_NAME} mentioned that the current AI secretary -- Loyal Elephie is integrated with advanced vector search and LLM technology. It could be used to provide insightful advices because the AI secretary has access to vast knowledge from {NICK_NAME}\'s notes and conversations.\n---end search result---'},
+        generate_system_message(f'---begin search result---\n<context_1 title="Techical notes">\n{NICK_NAME} mentioned that the current AI secretary -- Loyal Elephie is integrated with advanced vector search and LLM technology. It could be used to provide insightful advices because the AI secretary has access to vast knowledge from {NICK_NAME}\'s notes and conversations.\n---end search result---'),
         {'role':'assistant','content':f'<REPLY>Hey {NICK_NAME}, how could you forget about my creation? I am your artwork using advanced vector search and LLM technology. If you need insightful advices based on your notes and conversations between us, just tap on me, ah-ha!</REPLY>'},
     ]
     
@@ -213,7 +219,7 @@ async def create_chat_completion(
             content = contents[0]
             if len(contents) > 1:
                 # reference = contents[1]
-                new_messages.append({'role':'system', 'content': f"Your have searched the memory but the result content is hidden. If you need the details include relevant topics in SEARCH block again."})
+                new_messages.append(generate_system_message("Your have searched the memory but the result content is hidden. If you need the details include relevant topics in SEARCH block again."))
             new_messages.append({'role':'assistant', 'content': f"<REPLY>{content}</REPLY>"})
         else:
             new_messages.append(messages[i].copy())
@@ -227,7 +233,7 @@ async def create_chat_completion(
             return f"[{headers}]({NOTE_URL + headers.split(' > ')[0].replace(':',';')})"
         else:
             return f"[null]({doc_id})"
-        
+
     def format_context(i, ctx):
         if ctx.doc_id.startswith("Conversation on"):
             return f"<context {i+1} title={ctx.doc_id}/>\n{ctx.content}\n"
@@ -271,7 +277,7 @@ async def create_chat_completion(
                     single_message_generator("Failed to generate valid response, please try again."),
                 )
             elif chain_length == 3:
-                new_messages.append({"role":"system", "content": prompt_last_warning})
+                new_messages.append(generate_system_message(prompt_last_warning))
 
             if state==OutputState.Input:
                 chain_length += 1
@@ -321,7 +327,7 @@ async def create_chat_completion(
                         all_context_list += [ctx.doc_id for ctx in context_list]
                     else:
                         search_result = prompt_no_result
-                    new_messages.append({"role":"system", "content": f"---begin search result---\n{search_result}\n---end search result---"})
+                    new_messages.append(generate_system_message(f"---begin search result---\n{search_result}\n---end search result---"))
                     state = OutputState.Input
 
             elif state == OutputState.ToReply:
@@ -335,7 +341,7 @@ async def create_chat_completion(
                 state = OutputState.Finish
             else:
                 if not len(monologue):
-                    new_messages.append({"role":"system", "content": prompt_no_action})
+                    new_messages.append(generate_system_message(prompt_no_action))
                 state = OutputState.Input
     else:
         completion: llama_cpp.ChatCompletion = completion_or_chunks  # type: ignore

@@ -53,7 +53,7 @@ def search_context(queries):
             date_str, date = dates[-1]
             query_str = query_str.replace(date_str, "").strip() # remove date from the query string, could be done otherwise
         query_times.append(date)
-    query_result = doc_manager.query_by_strings(query_strings, n_results=RETRIEVAL_NUM_CHOICES)
+    query_result = doc_manager.query_by_strings(query_strings)
     def cal_score(dist):
         norm = sqrt(len(queries))
         return (1/(dist+.01)-1)/norm
@@ -133,7 +133,7 @@ def get_adjust_factor(double_associations, n_required):
     last = double_associations[n_required + n_weight - 1][2]
     return (1/last-1)*(rectify_factor*n_weight/n_required) + 1
 
-def get_all_associations(queries, n_choices):
+def get_all_associations(queries, n_choices=RETRIEVAL_NUM_CHOICES):
     query_strings = queries
     query_result = doc_manager.query_by_strings(query_strings, n_results=n_choices*2)
     print(query_result)
@@ -166,7 +166,7 @@ def get_all_associations(queries, n_choices):
     return all_associations
 
 def search_context_with_time(queries):
-    all_associations = get_all_associations(queries, RETRIEVAL_NUM_CHOICES)
+    all_associations = get_all_associations(queries)
     score_dict = aggregate_scores(all_associations)
     time_dict = doc_time_dict(all_associations)
     

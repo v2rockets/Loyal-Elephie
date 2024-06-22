@@ -18,8 +18,19 @@ NOTE_PATH = '../md_website/notes'
 CHAT_URL = 'https://localhost:3000/chat_history/' 
 NOTE_URL = 'https://localhost:3000/notes/'
 
+# MULTILPLE_SYSTEM_PROMPTS is used to adjust different LLM backend
+# Some backends may not support multiple system prompts
+# In this case set this parameter to False
+# If you don't know if multiple-system-prompts is supported
+# you can test by setting this parameter True and sees if there is no error during conversation
+# and if Loyal Elephie can still answer properly with provided context
+MULTILPLE_SYSTEM_PROMPTS = False
 
-# ---Retrieval Parameters--- #
+# Select working language (experimental)
+# Supported languages: english, german, french, italian, spanish, portuguese, dutch, swedish, danish, norwegian, finnish, czech, polish, russian, arabic
+WORKING_LANGUAGE = "english"
+
+# ---Retrieval Settings--- #
 RETRIEVAL_TOKEN_LIMIT = 2048  # Maximum token limit for the retrieved contexts
 RETRIEVAL_NUM_CHOICES = 10  # Number of top choices or results to retrieve for each query
 RETRIEVAL_MIN_VALUE = 0.25  # Minimum threshold for the value of retrieved documents
