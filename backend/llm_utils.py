@@ -76,8 +76,10 @@ def digest_markdown(title, path):
             level = 3
         page_content = simplify_markdown_headers(doc.page_content.strip(), level)
         content = f"---Begin Note---\nHeaders: {headers}\n{page_content}\n---End Note---"
+        prompt = SUMMARY_NOTE_PROMPT.replace("{NICK_NAME}", NICK_NAME)
+        prompt = prompt.replace("{LANGUAGE_PREFERENCE}", "" if LANGUAGE_PREFERENCE=="English" else f" The note should be in {LANGUAGE_PREFERENCE}.")
         summary = chat([
-            {"role": "system", "content": SUMMARY_NOTE_PROMPT.replace("{NICK_NAME}", NICK_NAME)},
+            {"role": "system", "content": prompt},
             {"role": "user", "content": content}]
         )
         # digest = f"# {headers}\n{summary}"
@@ -92,10 +94,11 @@ def digest_simple(title, path):
             tag, s = s.split('\n',1)
             tag = tag.lstrip('#').strip()
         text = f"---{title}---\n{s}"
+        prompt = SUMMARY_PROMPT.replace("{NICK_NAME}", NICK_NAME)
+        prompt = prompt.replace("{LANGUAGE_PREFERENCE}", "" if LANGUAGE_PREFERENCE=="English" else f" The note should be in {LANGUAGE_PREFERENCE}.")
         summary = chat([
-            {"role": "system", "content": SUMMARY_PROMPT.replace("{NICK_NAME}", NICK_NAME)},
+            {"role": "system", "content": prompt},
             {"role": "user", "content": text}]).strip()
-        print(">>>", tag)
         return summary, tag
     
 def count_token(input_str):

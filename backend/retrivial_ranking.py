@@ -8,6 +8,22 @@ from llm_utils import count_token
 from bm25_api import get_norm_bm25_scores, get_avg_bm25_scores
 from settings import *
 
+# Dictionary containing language codes and keywords for each supported language
+language_dict = {
+    'English': {'code': 'en', 'month': 'month', 'week': 'week'},
+    'German': {'code': 'de', 'month': 'monat', 'week': 'woche'},
+    'French': {'code': 'fr', 'month': 'mois', 'week': 'semaine'},
+    'Spanish': {'code': 'es', 'month': 'mes', 'week': 'semana'},
+    'Portuguese': {'code': 'pt', 'month': 'mês', 'week': 'semana'},
+    'Italian': {'code': 'it', 'month': 'mese', 'week': 'settimana'},
+    'Dutch': {'code': 'nl', 'month': 'maand', 'week': 'week'},
+    'Czech': {'code': 'cs', 'month': 'měsíc', 'week': 'týden'},
+    'Polish': {'code': 'pl', 'month': 'miesiąc', 'week': 'tydzień'},
+    'Russian': {'code': 'ru', 'month': 'месяц', 'week': 'неделя'},
+    'Arabic': {'code': 'ar', 'month': 'شهر', 'week': 'أسبوع'}
+}
+
+
 class ConversationContext():
     def __init__(self, doc_id, doc_content, score, doc_time=None, match_str=None):
         self.doc_id = doc_id
@@ -47,7 +63,8 @@ def search_context(queries):
     query_strings = queries
     query_times = []
     for query_str in queries:
-        dates = search_dates(query_str, languages=["en"], settings={"PREFER_DATES_FROM":"past"})
+        language_list = ['en'] if LANGUAGE_PREFERENCE=="English" else ['en', language_dict[LANGUAGE_PREFERENCE]['code']]
+        dates = search_dates(query_str, languages=language_list, settings={"PREFER_DATES_FROM":"past"})
         date = None
         if dates:
             date_str, date = dates[-1]
@@ -106,16 +123,32 @@ def search_context(queries):
     ctx_list = sorted(ctx_list, key=lambda x: x.doc_time)
     return ctx_list
 
-def generate_time_range(date_str:str):
+def generate_time_range(date_str: str):
     print("timed_query: ", date_str)
-    start_date = parse(date_str, languages=["en"], settings={"PREFER_DATES_FROM":"past", "PREFER_MONTH_OF_YEAR": "first", 'PREFER_DAY_OF_MONTH': 'first'})
-    end_date = parse(date_str, languages=["en"], settings={"PREFER_DATES_FROM":"past", "PREFER_MONTH_OF_YEAR": "last", 'PREFER_DAY_OF_MONTH': 'last'})
-    if "month" in date_str.lower() and end_date.toordinal() - start_date.toordinal() < 15: # parsed to point, recover
+    
+    language_info = language_dict[LANGUAGE_PREFERENCE]
+    language_list = ['en'] if LANGUAGE_PREFERENCE == "English" else ['en', language_info['code']]
+    
+    start_date = parse(date_str, languages=language_list, settings={"PREFER_DATES_FROM":"past", "PREFER_MONTH_OF_YEAR": "first", 'PREFER_DAY_OF_MONTH': 'first'})
+    end_date = parse(date_str, languages=language_list, settings={"PREFER_DATES_FROM":"past", "PREFER_MONTH_OF_YEAR": "last", 'PREFER_DAY_OF_MONTH': 'last'})
+    
+    date_str_lower = date_str.lower()
+    
+    # Always check for English words, and add language-specific words if not English
+    month_keywords = {'month'}
+    week_keywords = {'week'}
+    if LANGUAGE_PREFERENCE != 'English':
+        month_keywords.add(language_info['month'])
+        week_keywords.add(language_info['week'])
+    
+    if any(keyword in date_str_lower for keyword in month_keywords) and end_date.toordinal() - start_date.toordinal() < 15:
         start_date = start_date - timedelta(days=30)
         end_date = end_date + timedelta(days=30)
-    if "week" in date_str.lower() and end_date.toordinal() - start_date.toordinal() < 4: # parsed to point, recover
+    
+    if any(keyword in date_str_lower for keyword in week_keywords) and end_date.toordinal() - start_date.toordinal() < 4:
         start_date = start_date - timedelta(days=7)
         end_date = end_date + timedelta(days=7)
+    
     return start_date, end_date
 
 def cal_score(dist, len_query):

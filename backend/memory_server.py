@@ -130,6 +130,9 @@ def generate_system_message(content, use_system = MULTILPLE_SYSTEM_PROMPTS):
 
 api_key_header = APIKeyHeader(name="Authorization", auto_error=False)
 
+with open('language_presets.json', 'r', encoding='utf-8') as file:
+    lang_presets = json.load(file)
+
 async def get_api_key(api_key_header: str = Depends(api_key_header)):
     try:
         token = api_key_header.split(' ')[1]
@@ -201,16 +204,20 @@ async def create_chat_completion(
     state = OutputState.Input
     all_context_list = []
 
+    prompt = AGENT_PROMPT.replace("{CURRENT_TIME}", latest_chat_time).replace("{NICK_NAME}", NICK_NAME)
+    prompt = prompt.replace("{LANGUAGE_PREFERENCE}", "" if LANGUAGE_PREFERENCE=="English" else f"\n**Your default langauge for search queries and reply contents is {LANGUAGE_PREFERENCE}.**")
+    print(">>>", LANGUAGE_PREFERENCE, prompt)
     # Prepare formmating
-    new_messages = [{'role':'system', 'content': AGENT_PROMPT.replace("{CURRENT_TIME}", latest_chat_time).replace("{NICK_NAME}", NICK_NAME)}]
+    new_messages = [{'role':'system', 'content': prompt}]
     
+    language = LANGUAGE_PREFERENCE
     # add one-shot prompt
     new_messages += [
-        {'role':'user','content':'I don\'t remember how Loyal Elephie was created.'}, 
-        {'role':'assistant','content':f'<THINK>To assist {NICK_NAME}, I need to search my memory for the questions:\nHow Loyal Elephie was created?\nHow AI secretary like Loyal Elephie was developed? </THINK>'},
-        {'role':'assistant','content':f'<SEARCH>\nLoyal Elephie created detail\n{NICK_NAME} AI secretary develop</SEARCH>'},
-        generate_system_message(f'---begin search result---\n<context_1 title="Techical notes">\n{NICK_NAME} mentioned that the current AI secretary -- Loyal Elephie is integrated with advanced vector search and LLM technology. It could be used to provide insightful advices because the AI secretary has access to vast knowledge from {NICK_NAME}\'s notes and conversations.\n---end search result---'),
-        {'role':'assistant','content':f'<REPLY>Hey {NICK_NAME}, how could you forget about my creation? I am your artwork using advanced vector search and LLM technology. If you need insightful advices based on your notes and conversations between us, just tap on me, ah-ha!</REPLY>'},
+        {'role':'user','content': lang_presets["languages"][language]["user_message"]},
+        {'role':'assistant','content':f'<THINK>{lang_presets["languages"][language]["think_message"].format(NICK_NAME=NICK_NAME)}</THINK>'},
+        {'role':'assistant','content':f'<SEARCH>\n{lang_presets["languages"][language]["search_query"].format(NICK_NAME=NICK_NAME)}</SEARCH>'},
+        generate_system_message(f'---begin search result---\n<context_1 title="{lang_presets["languages"][language]["context_title"]}">\n{lang_presets["languages"][language]["context_content"].format(NICK_NAME=NICK_NAME)}\n---end search result---'),
+        {'role':'assistant','content':f'<REPLY>{lang_presets["languages"][language]["reply_message"].format(NICK_NAME=NICK_NAME)}</REPLY>'},
     ]
     
     for i in range(1, len(messages)):

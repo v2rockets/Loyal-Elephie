@@ -7,7 +7,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
 from rank_bm25 import BM25Okapi
-
+from settings import LANGUAGE_PREFERENCE
 from threading import Lock
 
 lock = Lock()
@@ -17,12 +17,12 @@ corpus_index = None
 bm25 = None
 
 # Initialize stemmer and stopwords
-stemmer = PorterStemmer()
-stop_words = set(stopwords.words('english'))
+# stemmer = PorterStemmer()
+stop_words = set(stopwords.words(LANGUAGE_PREFERENCE.lower()))
 
 # Pre-processing function
 def preprocess(text):
-    tokens = word_tokenize(text.lower())
+    tokens = word_tokenize(text.lower(), language=LANGUAGE_PREFERENCE.lower())
     # tokens = [stemmer.stem(token) for token in tokens if token not in stop_words and token.isalpha()]
     tokens = [token for token in tokens if token not in stop_words and token.isalpha()]
     return tokens

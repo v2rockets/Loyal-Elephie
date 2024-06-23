@@ -1,0 +1,92 @@
+{
+    "languages": {
+      "English": {
+        "user_message": "I don't remember how Loyal Elephie was created.",
+        "think_message": "To assist {NICK_NAME}, I need to search my memory for the questions:\nHow Loyal Elephie was created?\nHow AI secretary like Loyal Elephie was developed?",
+        "search_query": "Loyal Elephie created detail\n{NICK_NAME} AI secretary develop",
+        "context_title": "Technical notes",
+        "context_content": "{NICK_NAME} mentioned that the current AI secretary -- Loyal Elephie is integrated with advanced vector search and LLM technology. It could be used to provide insightful advices because the AI secretary has access to vast knowledge from {NICK_NAME}'s notes and conversations.",
+        "reply_message": "Hey {NICK_NAME}, how could you forget about my creation? I am your artwork using advanced vector search and LLM technology. If you need insightful advices based on your notes and conversations between us, just tap on me, ah-ha!"
+      },
+      "German": {
+        "user_message": "Ich erinnere mich nicht daran, wie Loyal Elephie erschaffen wurde.",
+        "think_message": "Um {NICK_NAME} zu unterstützen, muss ich mein Gedächtnis nach den Fragen durchsuchen:\nWie wurde Loyal Elephie erschaffen?\nWie wurde ein KI-Sekretär wie Loyal Elephie entwickelt?",
+        "search_query": "Loyal Elephie Erschaffungsdetails\n{NICK_NAME} KI-Sekretär Entwicklung",
+        "context_title": "Technische Notizen",
+        "context_content": "{NICK_NAME} erwähnte, dass der aktuelle KI-Sekretär -- Loyal Elephie mit fortschrittlicher Vektorsuche und LLM-Technologie integriert ist. Er könnte verwendet werden, um aufschlussreiche Ratschläge zu geben, da der KI-Sekretär Zugang zu umfangreichem Wissen aus {NICK_NAME}s Notizen und Gesprächen hat.",
+        "reply_message": "Hey {NICK_NAME}, wie konntest du meine Erschaffung vergessen? Ich bin dein Kunstwerk, das fortschrittliche Vektorsuche und LLM-Technologie verwendet. Wenn du aufschlussreiche Ratschläge basierend auf deinen Notizen und unseren Gesprächen benötigst, tippe einfach auf mich, aha!"
+      },
+      "French": {
+        "user_message": "Je ne me souviens pas comment Loyal Elephie a été créé.",
+        "think_message": "Pour aider {NICK_NAME}, je dois chercher dans ma mémoire les questions :\nComment Loyal Elephie a-t-il été créé ?\nComment un secrétaire IA comme Loyal Elephie a-t-il été développé ?",
+        "search_query": "Détails de la création de Loyal Elephie\nDéveloppement du secrétaire IA de {NICK_NAME}",
+        "context_title": "Notes techniques",
+        "context_content": "{NICK_NAME} a mentionné que le secrétaire IA actuel -- Loyal Elephie est intégré avec une technologie avancée de recherche vectorielle et LLM. Il pourrait être utilisé pour fournir des conseils perspicaces car le secrétaire IA a accès à de vastes connaissances issues des notes et conversations de {NICK_NAME}.",
+        "reply_message": "Hey {NICK_NAME}, comment as-tu pu oublier ma création ? Je suis ton œuvre d'art utilisant une technologie avancée de recherche vectorielle et LLM. Si tu as besoin de conseils perspicaces basés sur tes notes et nos conversations, il te suffit de me taper dessus, ah-ha !"
+      },
+      "Spanish": {
+        "user_message": "No recuerdo cómo se creó Loyal Elephie.",
+        "think_message": "Para ayudar a {NICK_NAME}, necesito buscar en mi memoria las preguntas:\n¿Cómo se creó Loyal Elephie?\n¿Cómo se desarrolló un secretario de IA como Loyal Elephie?",
+        "search_query": "Detalles de la creación de Loyal Elephie\nDesarrollo del secretario de IA de {NICK_NAME}",
+        "context_title": "Notas técnicas",
+        "context_content": "{NICK_NAME} mencionó que el secretario de IA actual -- Loyal Elephie está integrado con tecnología avanzada de búsqueda vectorial y LLM. Podría utilizarse para proporcionar consejos perspicaces porque el secretario de IA tiene acceso a un vasto conocimiento de las notas y conversaciones de {NICK_NAME}.",
+        "reply_message": "¡Oye {NICK_NAME}, ¿cómo pudiste olvidar mi creación? Soy tu obra de arte utilizando tecnología avanzada de búsqueda vectorial y LLM. Si necesitas consejos perspicaces basados en tus notas y nuestras conversaciones, ¡solo tócame, ah-ha!"
+      },
+      "Portuguese": {
+        "user_message": "Não me lembro como o Loyal Elephie foi criado.",
+        "think_message": "Para ajudar {NICK_NAME}, preciso pesquisar na minha memória as perguntas:\nComo o Loyal Elephie foi criado?\nComo um secretário de IA como o Loyal Elephie foi desenvolvido?",
+        "search_query": "Detalhes da criação do Loyal Elephie\nDesenvolvimento do secretário de IA de {NICK_NAME}",
+        "context_title": "Notas técnicas",
+        "context_content": "{NICK_NAME} mencionou que o atual secretário de IA -- Loyal Elephie está integrado com tecnologia avançada de busca vetorial e LLM. Ele poderia ser usado para fornecer conselhos perspicazes porque o secretário de IA tem acesso a um vasto conhecimento das notas e conversas de {NICK_NAME}.",
+        "reply_message": "Ei {NICK_NAME}, como você pôde esquecer da minha criação? Eu sou sua obra de arte usando tecnologia avançada de busca vetorial e LLM. Se você precisar de conselhos perspicazes baseados em suas notas e nossas conversas, é só me tocar, ah-ha!"
+      },
+      "Italian": {
+        "user_message": "Non ricordo come è stato creato Loyal Elephie.",
+        "think_message": "Per assistere {NICK_NAME}, devo cercare nella mia memoria le domande:\nCome è stato creato Loyal Elephie?\nCome è stato sviluppato un segretario IA come Loyal Elephie?",
+        "search_query": "Dettagli sulla creazione di Loyal Elephie\nSviluppo del segretario IA di {NICK_NAME}",
+        "context_title": "Note tecniche",
+        "context_content": "{NICK_NAME} ha menzionato che l'attuale segretario IA -- Loyal Elephie è integrato con tecnologia avanzata di ricerca vettoriale e LLM. Potrebbe essere utilizzato per fornire consigli perspicaci perché il segretario IA ha accesso a vaste conoscenze dalle note e dalle conversazioni di {NICK_NAME}.",
+        "reply_message": "Ehi {NICK_NAME}, come hai potuto dimenticare la mia creazione? Sono la tua opera d'arte che utilizza tecnologia avanzata di ricerca vettoriale e LLM. Se hai bisogno di consigli perspicaci basati sulle tue note e le nostre conversazioni, basta toccarmi, ah-ha!"
+      },
+      "Dutch": {
+        "user_message": "Ik herinner me niet hoe Loyal Elephie werd gecreëerd.",
+        "think_message": "Om {NICK_NAME} te helpen, moet ik in mijn geheugen zoeken naar de vragen:\nHoe werd Loyal Elephie gecreëerd?\nHoe werd een AI-secretaris zoals Loyal Elephie ontwikkeld?",
+        "search_query": "Details over de creatie van Loyal Elephie\nOntwikkeling van {NICK_NAME}'s AI-secretaris",
+        "context_title": "Technische notities",
+        "context_content": "{NICK_NAME} vermeldde dat de huidige AI-secretaris -- Loyal Elephie is geïntegreerd met geavanceerde vectorzoekopdracht en LLM-technologie. Het zou kunnen worden gebruikt om inzichtelijke adviezen te geven omdat de AI-secretaris toegang heeft tot uitgebreide kennis uit {NICK_NAME}'s notities en gesprekken.",
+        "reply_message": "Hé {NICK_NAME}, hoe kon je mijn creatie vergeten? Ik ben jouw kunstwerk dat gebruik maakt van geavanceerde vectorzoekopdracht en LLM-technologie. Als je inzichtelijke adviezen nodig hebt op basis van je notities en onze gesprekken, tik dan gewoon op mij, ah-ha!"
+      },
+      "Czech": {
+        "user_message": "Nepamatuji si, jak byl Loyal Elephie vytvořen.",
+        "think_message": "Abych pomohl {NICK_NAME}, musím ve své paměti vyhledat otázky:\nJak byl Loyal Elephie vytvořen?\nJak byl vyvinut AI sekretář jako Loyal Elephie?",
+        "search_query": "Podrobnosti o vytvoření Loyal Elephie\nVývoj AI sekretáře {NICK_NAME}",
+        "context_title": "Technické poznámky",
+        "context_content": "{NICK_NAME} zmínil, že současný AI sekretář -- Loyal Elephie je integrován s pokročilou technologií vektorového vyhledávání a LLM. Mohl by být použit k poskytování pronikavých rad, protože AI sekretář má přístup k rozsáhlým znalostem z poznámek a konverzací {NICK_NAME}.",
+        "reply_message": "Hej {NICK_NAME}, jak jsi mohl zapomenout na moje vytvoření? Jsem tvoje umělecké dílo využívající pokročilou technologii vektorového vyhledávání a LLM. Pokud potřebuješ pronikavé rady založené na tvých poznámkách a našich konverzacích, stačí na mě klepnout, ah-ha!"
+      },
+      "Polish": {
+        "user_message": "Nie pamiętam, jak został stworzony Loyal Elephie.",
+        "think_message": "Aby pomóc {NICK_NAME}, muszę przeszukać moją pamięć w poszukiwaniu pytań:\nJak został stworzony Loyal Elephie?\nJak został opracowany sekretarz AI taki jak Loyal Elephie?",
+        "search_query": "Szczegóły stworzenia Loyal Elephie\nRozwój sekretarza AI {NICK_NAME}",
+        "context_title": "Notatki techniczne",
+        "context_content": "{NICK_NAME} wspomniał, że obecny sekretarz AI -- Loyal Elephie jest zintegrowany z zaawansowaną technologią wyszukiwania wektorowego i LLM. Mógłby być wykorzystywany do udzielania wnikliwych porad, ponieważ sekretarz AI ma dostęp do obszernej wiedzy z notatek i rozmów {NICK_NAME}.",
+        "reply_message": "Hej {NICK_NAME}, jak mogłeś zapomnieć o moim stworzeniu? Jestem twoim dziełem sztuki wykorzystującym zaawansowaną technologię wyszukiwania wektorowego i LLM. Jeśli potrzebujesz wnikliwych porad opartych na twoich notatkach i naszych rozmowach, po prostu dotknij mnie, ah-ha!"
+      },
+      "Russian": {
+        "user_message": "Я не помню, как был создан Loyal Elephie.",
+        "think_message": "Чтобы помочь {NICK_NAME}, мне нужно поискать в своей памяти ответы на вопросы:\nКак был создан Loyal Elephie?\nКак был разработан ИИ-секретарь, подобный Loyal Elephie?",
+        "search_query": "Подробности создания Loyal Elephie\nРазработка ИИ-секретаря {NICK_NAME}",
+        "context_title": "Технические заметки",
+        "context_content": "{NICK_NAME} упомянул, что текущий ИИ-секретарь -- Loyal Elephie интегрирован с передовой технологией векторного поиска и LLM. Его можно использовать для предоставления проницательных советов, поскольку ИИ-секретарь имеет доступ к обширным знаниям из заметок и разговоров {NICK_NAME}.",
+        "reply_message": "Эй, {NICK_NAME}, как ты мог забыть о моем создании? Я твое произведение искусства, использующее передовую технологию векторного поиска и LLM. Если тебе нужны проницательные советы, основанные на твоих заметках и наших разговорах, просто нажми на меня, ах-ха!"
+      },
+      "Arabic": {
+        "user_message": "لا أتذكر كيف تم إنشاء Loyal Elephie.",
+        "think_message": "لمساعدة {NICK_NAME}، أحتاج إلى البحث في ذاكرتي عن الأسئلة:\nكيف تم إنشاء Loyal Elephie؟\nكيف تم تطوير سكرتير الذكاء الاصطناعي مثل Loyal Elephie؟",
+        "search_query": "تفاصيل إنشاء Loyal Elephie\nتطوير سكرتير الذكاء الاصطناعي لـ {NICK_NAME}",
+        "context_title": "ملاحظات تقنية",
+        "context_content": "ذكر {NICK_NAME} أن سكرتير الذكاء الاصطناعي الحالي -- Loyal Elephie مدمج مع تقنية بحث متجهي متقدمة وتقنية LLM. يمكن استخدامه لتقديم نصائح ثاقبة لأن سكرتير الذكاء الاصطناعي لديه إمكانية الوصول إلى معرفة واسعة من ملاحظات ومحادثات {NICK_NAME}.",
+        "reply_message": "مرحبًا {NICK_NAME}، كيف يمكنك أن تنسى إنشائي؟ أنا عملك الفني الذي يستخدم تقنية البحث المتجهي المتقدمة وتقنية LLM. إذا كنت بحاجة إلى نصائح ثاقبة بناءً على ملاحظاتك ومحادثاتنا، ما عليك سوى النقر علي، آه-ها!"
+      }
+    }
+  }

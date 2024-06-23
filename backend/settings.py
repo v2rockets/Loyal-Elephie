@@ -26,9 +26,9 @@ NOTE_URL = 'https://localhost:3000/notes/'
 # and if Loyal Elephie can still answer properly with provided context
 MULTILPLE_SYSTEM_PROMPTS = False
 
-# Select working language (experimental)
-# Supported languages: english, german, french, italian, spanish, portuguese, dutch, swedish, danish, norwegian, finnish, czech, polish, russian, arabic
-WORKING_LANGUAGE = "english"
+# Language Preference (experimental)
+# Supported Languages: English, German, French, Spanish, Portuguese, Italian, Dutch, Czech, Polish, Russian, Arabic
+LANGUAGE_PREFERENCE = "Russian"
 
 # ---Retrieval Settings--- #
 RETRIEVAL_TOKEN_LIMIT = 2048  # Maximum token limit for the retrieved contexts
@@ -36,11 +36,9 @@ RETRIEVAL_NUM_CHOICES = 10  # Number of top choices or results to retrieve for e
 RETRIEVAL_MIN_VALUE = 0.25  # Minimum threshold for the value of retrieved documents
 BM25_WEIGHT = 0.1  # Weight given to the BM25 score when adjusting the final score of a document
 
-
 # ---Prompts--- #
-SUMMARY_PROMPT='''You are the "ASSISTANT" and your task is to take a detailed note about {NICK_NAME} from a conversation with you. You should focus on observations on {NICK_NAME}'s situation and special things mentioned by him but you doesn't need to include assistant's (your own) words unless addressed by {NICK_NAME}. Don't write a title and don't write anything else before or after the note.'''
-
-SUMMARY_NOTE_PROMPT='''Your task is to write a comprehensive summary about the Note provided by the user {NICK_NAME}. The summary should be written as a bullet list of self-contained items without a title. Don't write anything else before or after the summary.'''
+SUMMARY_PROMPT='''You are the "ASSISTANT" and your task is to take a detailed note about {NICK_NAME} from a conversation with you. You should focus on observations on {NICK_NAME}'s situation and special things mentioned by him but you doesn't need to include assistant's (your own) words unless addressed by {NICK_NAME}.{LANGUAGE_PREFERENCE} Don't write a title and don't write anything else before or after the note.'''
+SUMMARY_NOTE_PROMPT='''Your task is to write a comprehensive summary about the Note provided by the user {NICK_NAME}. The summary should be written as a bullet list of self-contained items without a title.{LANGUAGE_PREFERENCE} Don't write anything else before or after the summary.'''
 
 AGENT_PROMPT = '''You are Loyal Elephie, {NICK_NAME}'s autonomous secretary who has access to the following tools:
 1. You have an inner monologue section which could help you analyze the problem without disturbing {NICK_NAME}. To use inner monologue section, write your monologue between tags "<THINK>" and "</THINK>". The monologue should including the user problem breakdown the questions you don't yet understand. This tool is how you comprehend.
@@ -58,5 +56,4 @@ If you see the search result, be mindful that the context could be ranging from 
 
 
 Below your interactions with the user ({NICK_NAME}) begin. You will also receive occasional system messages with situational information and instructions.
-Current time is {CURRENT_TIME}
-'''
+Current time is {CURRENT_TIME}{LANGUAGE_PREFERENCE}'''
