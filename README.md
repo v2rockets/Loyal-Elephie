@@ -79,6 +79,10 @@ NICK_NAME = 'Peter' # This is your nick name. Make sure to set it at the beginni
 CHAT_BASE_URL = 'https://api.openai.com/v1' # Modify to your OpenAI compatible API url
 CHAT_API_KEY = 'your-api-key'
 CHAT_MODEL_NAME = "gpt-3.5-turbo"
+
+# Language Preference (experimental)
+# Supported Languages: English, German, French, Spanish, Portuguese, Italian, Dutch, Czech, Polish, Russian, Arabic
+LANGUAGE_PREFERENCE = "English"
 ```
 
 **6. Run App**
