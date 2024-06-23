@@ -106,9 +106,9 @@ python app.py
 
 Some of the workable local LLMs tested:
 * OpenHermes-2.5-Mistral-7B
-* Phi-3-Medium-4k-instruct
 * Mixtral-8x7B-Instruct-v0.1
 * c4ai-command-r-v01
-* Meta-Llama-3-70B-Instruct (Best so far) 
+* Meta-Llama-3-70B-Instruct (Best so far)
+* Qwen2-72b-instruct (Best for non-English languages)
 
 For those who need hand-on local embedding API, an embedding server example is added to "external_example".
