@@ -176,7 +176,7 @@ useEffect(() => {
       </Head>
 
       <div className="flex flex-col h-screen">
-        <Navbar />
+        <Navbar onReset={handleReset} onSave={handleSave} />
 
         <div className="flex-1 overflow-auto sm:px-10 pb-4 sm:pb-10">
           <div className="max-w-[1200px] mx-auto mt-4 sm:mt-12">
@@ -186,8 +186,6 @@ useEffect(() => {
               isButtonDisabled={isButtonDisabled}
               onSend={handleSend}
               onRevert={handleRevert}
-              onReset={handleReset}
-              onSave={handleSave}
               content={content}
               setContent={setContent}
             />
