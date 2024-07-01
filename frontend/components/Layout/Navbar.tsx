@@ -7,24 +7,24 @@ interface Props {
 
 export const Navbar: FC<Props> = ({ onReset, onSave }) => {
   return (
-    <div className="flex h-[50px] sm:h-[60px] border-b border-neutral-300 py-2 px-2 sm:px-8 items-center justify-between">
-      <div className="font-bold text-3xl flex items-center">
+    <div className="flex h-[50px] sm:h-[60px] border-b border-neutral-300 py-2 px-4 sm:px-8 items-center justify-between">
+      <div className="flex items-center">
         <a
-          className="ml-2 hover:opacity-50"
+          className="text-xl sm:text-3xl font-bold hover:opacity-50"
           href="https://github.com/v2rockets/Loyal-Elephie"
         >
           🐘 Loyal Elephie
         </a>
       </div>
-      <div className="flex flex-row items-center mr-2"> {/* Added mr-2 here */}
+      <div className="flex flex-row items-center">
         <button
-          className="text-sm sm:text-base text-neutral-900 font-semibold rounded-lg px-4 py-2 bg-neutral-200 hover:bg-neutral-300 focus:outline-none focus:ring-1 focus:ring-neutral-300 mr-2"
+          className="text-sm sm:text-base text-neutral-900 font-semibold rounded-lg px-3 sm:px-4 py-1.5 sm:py-2 bg-neutral-200 hover:bg-neutral-300 focus:outline-none focus:ring-1 focus:ring-neutral-300 mr-2 sm:mr-3"
           onClick={onReset}
         >
           Reset
         </button>
         <button
-          className="text-sm sm:text-base text-neutral-900 font-semibold rounded-lg px-4 py-2 bg-neutral-200 hover:bg-neutral-300 focus:outline-none focus:ring-1 focus:ring-neutral-300"
+          className="text-sm sm:text-base text-neutral-900 font-semibold rounded-lg px-3 sm:px-4 py-1.5 sm:py-2 bg-neutral-200 hover:bg-neutral-300 focus:outline-none focus:ring-1 focus:ring-neutral-300"
           onClick={onSave}
         >
           Save
