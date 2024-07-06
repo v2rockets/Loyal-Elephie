@@ -81,7 +81,7 @@ CHAT_API_KEY = 'your-api-key'
 CHAT_MODEL_NAME = "gpt-3.5-turbo"
 
 # Language Preference (experimental)
-# Supported Languages: English, German, French, Spanish, Portuguese, Italian, Dutch, Czech, Polish, Russian, Arabic
+# Supported Languages: English, Chinese, German, French, Spanish, Portuguese, Italian, Dutch, Czech, Polish, Russian, Arabic
 LANGUAGE_PREFERENCE = "English"
 ```
 
