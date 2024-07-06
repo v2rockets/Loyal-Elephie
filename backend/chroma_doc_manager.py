@@ -7,6 +7,7 @@ from chromadb.config import Settings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 from llm_utils import get_embeddings
+from settings import LANGUAGE_PREFERENCE
 
 ROOT_FOLDER = 'digests'
 
@@ -142,7 +143,10 @@ class ChromaDocManager:
     def _add_index(self, document: str, doc_id: str, other_meta=None, chunk_size=100, chunk_overlap=0):
         assert ';' not in doc_id
         # Split the document into chunks using the RecursiveCharacterTextSplitter
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+        if LANGUAGE_PREFERENCE == 'Chinese':
+            text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size//4, chunk_overlap=chunk_overlap, separators=['¡£','£¿'], keep_separator=False)
+        else:
+            text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
         chunks = text_splitter.split_text(document)
         # Add each chunk to ChromaDB with associated doc_id and its index
         ids = [f"{doc_id}_{i}" for i, _ in enumerate(chunks)]

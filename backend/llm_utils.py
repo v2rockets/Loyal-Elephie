@@ -102,7 +102,7 @@ def digest_simple(title, path):
         return summary, tag
     
 def count_token(input_str):
-    encoding = tiktoken.get_encoding("cl100k_base")
+    encoding = tiktoken.get_encoding("o200k_base") # This is only approximation
     if type(input_str) == dict:
         input_str = f"role: {input_str['role']}, content: {input_str['content']}"
     length = len(encoding.encode(input_str))

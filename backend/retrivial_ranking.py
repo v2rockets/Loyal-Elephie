@@ -11,6 +11,7 @@ from settings import *
 # Dictionary containing language codes and keywords for each supported language
 language_dict = {
     'English': {'code': 'en', 'month': 'month', 'week': 'week'},
+    'Chinese': {'code': 'zh', 'month': '月', 'week': '周'},
     'German': {'code': 'de', 'month': 'monat', 'week': 'woche'},
     'French': {'code': 'fr', 'month': 'mois', 'week': 'semaine'},
     'Spanish': {'code': 'es', 'month': 'mes', 'week': 'semana'},
@@ -59,7 +60,7 @@ def doc_time_dict(associations):
             time_dict[doc_id] = doc_time
     return time_dict
 
-def search_context(queries):
+def search_context(queries, n_choices = 8):
     query_strings = queries
     query_times = []
     for query_str in queries:
@@ -70,7 +71,7 @@ def search_context(queries):
             date_str, date = dates[-1]
             query_str = query_str.replace(date_str, "").strip() # remove date from the query string, could be done otherwise
         query_times.append(date)
-    query_result = doc_manager.query_by_strings(query_strings)
+    query_result = doc_manager.query_by_strings(query_strings, n_results=n_choices)
     def cal_score(dist):
         norm = sqrt(len(queries))
         return (1/(dist+.01)-1)/norm
@@ -172,7 +173,8 @@ def get_all_associations(queries, n_choices=RETRIEVAL_NUM_CHOICES):
     print(query_result)
     all_associations = []
     for i, query_str in enumerate(query_strings):
-        dates = search_dates(query_str, languages=["en"], settings={"PREFER_DATES_FROM":"past"})
+        language_list = ['en'] if LANGUAGE_PREFERENCE=="English" else ['en', language_dict[LANGUAGE_PREFERENCE]['code']]
+        dates = search_dates(query_str, languages=language_list, settings={"PREFER_DATES_FROM":"past"})
         if dates:
             time_factor = 1.5
             double_associations = [(metadata['doc_id'], metadata['doc_time'], distance) for metadata, distance in zip(query_result['metadatas'][i], query_result['distances'][i])]

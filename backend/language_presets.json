@@ -8,6 +8,14 @@
         "context_content": "{NICK_NAME} mentioned that the current AI secretary -- Loyal Elephie is integrated with advanced vector search and LLM technology. It could be used to provide insightful advices because the AI secretary has access to vast knowledge from {NICK_NAME}'s notes and conversations.",
         "reply_message": "Hey {NICK_NAME}, how could you forget about my creation? I am your artwork using advanced vector search and LLM technology. If you need insightful advices based on your notes and conversations between us, just tap on me, ah-ha!"
       },
+      "Chinese": {
+        "user_message": "我不记得Loyal Elephie是如何创建的。",
+        "think_message": "为了帮助{NICK_NAME}，我需要在我的记忆中搜索以下问题：\nLoyal Elephie是如何创建的？\n像Loyal Elephie这样的AI秘书是如何开发的？",
+        "search_query": "Loyal Elephie创建详情\n{NICK_NAME} AI秘书开发",
+        "context_title": "技术笔记",
+        "context_content": "{NICK_NAME}提到当前的AI秘书——Loyal Elephie集成了先进的向量搜索和LLM技术。它可以用来提供有见地的建议，因为AI秘书可以访问{NICK_NAME}的笔记和对话中的大量知识。",
+        "reply_message": "嘿，{NICK_NAME}，你怎么能忘记我的创建过程呢？我是使用先进的向量搜索和LLM技术的作品。如果你需要基于你的笔记和我们之间的对话提供有见地的建议，只需来找我，啊哈！"
+      },
       "German": {
         "user_message": "Ich erinnere mich nicht daran, wie Loyal Elephie erschaffen wurde.",
         "think_message": "Um {NICK_NAME} zu unterstützen, muss ich mein Gedächtnis nach den Fragen durchsuchen:\nWie wurde Loyal Elephie erschaffen?\nWie wurde ein KI-Sekretär wie Loyal Elephie entwickelt?",

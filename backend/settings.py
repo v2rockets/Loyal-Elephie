@@ -27,8 +27,8 @@ NOTE_URL = 'https://localhost:3000/notes/'
 MULTILPLE_SYSTEM_PROMPTS = False
 
 # Language Preference (experimental)
-# Supported Languages: English, German, French, Spanish, Portuguese, Italian, Dutch, Czech, Polish, Russian, Arabic
-LANGUAGE_PREFERENCE = "Russian"
+# Supported Languages: English, Chinese, German, French, Spanish, Portuguese, Italian, Dutch, Czech, Polish, Russian, Arabic
+LANGUAGE_PREFERENCE = "English"
 
 # ---Retrieval Settings--- #
 RETRIEVAL_TOKEN_LIMIT = 2048  # Maximum token limit for the retrieved contexts
