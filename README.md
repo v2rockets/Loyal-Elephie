@@ -100,9 +100,10 @@ python app.py
 ```
 
 # Usage Tips
-* use "Save" button to save the current conversation into Loyal Elephie's memory.
+* By default, visit Loyal Elephie from http://localhost:8080
+* use "Save" button to save the current conversation into Loyal Elephie's memory
 * use "Reset" button to clear the current conversation (not affecting saving status, the same as refreshing page)
-* click on the titles in "Reference" to navigate to the corresponding Markdown notes (but SilverBulletMd or another web Markdown editor has to be hosted and configured).
+* click on the titles in "Reference" to navigate to the corresponding Markdown notes (but SilverBulletMd or another web Markdown editor has to be hosted and configured)
 
 Some of the workable local LLMs tested:
 * OpenHermes-2.5-Mistral-7B
