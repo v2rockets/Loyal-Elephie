@@ -144,7 +144,7 @@ class ChromaDocManager:
         assert ';' not in doc_id
         # Split the document into chunks using the RecursiveCharacterTextSplitter
         if LANGUAGE_PREFERENCE == 'Chinese':
-            text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size//4, chunk_overlap=chunk_overlap, separators=['¡£','£¿'], keep_separator=False)
+            text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size//4, chunk_overlap=chunk_overlap, separators=['ã€‚','ï¼Ÿ'], keep_separator=False)
         else:
             text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
         chunks = text_splitter.split_text(document)
