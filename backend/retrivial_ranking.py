@@ -64,7 +64,7 @@ def search_context(queries, n_choices = 8):
     query_strings = queries
     query_times = []
     for query_str in queries:
-        language_list = ['en'] if LANGUAGE_PREFERENCE=="English" else ['en', language_dict[LANGUAGE_PREFERENCE]['code']]
+        language_list = ['en'] if LANGUAGE_PREFERENCE=="English" else [language_dict[LANGUAGE_PREFERENCE]['code'], 'en']
         dates = search_dates(query_str, languages=language_list, settings={"PREFER_DATES_FROM":"past"})
         date = None
         if dates:
@@ -124,11 +124,18 @@ def search_context(queries, n_choices = 8):
     ctx_list = sorted(ctx_list, key=lambda x: x.doc_time)
     return ctx_list
 
-def generate_time_range(date_str: str):
-    print("timed_query: ", date_str)
-    
+def parse_date_range(start_date_str: str, end_date_str: str):
     language_info = language_dict[LANGUAGE_PREFERENCE]
-    language_list = ['en'] if LANGUAGE_PREFERENCE == "English" else ['en', language_info['code']]
+    language_list = ['en'] if LANGUAGE_PREFERENCE == "English" else [language_info['code'], 'en']
+    
+    start_date = parse(start_date_str, languages=language_list, settings={"PREFER_DATES_FROM":"past", "PREFER_MONTH_OF_YEAR": "first", 'PREFER_DAY_OF_MONTH': 'first'})
+    end_date = parse(end_date_str, languages=language_list, settings={"PREFER_DATES_FROM":"past", "PREFER_MONTH_OF_YEAR": "last", 'PREFER_DAY_OF_MONTH': 'last'})
+    return start_date, end_date
+
+def generate_time_range(date_str: str):
+
+    language_info = language_dict[LANGUAGE_PREFERENCE]
+    language_list = ['en'] if LANGUAGE_PREFERENCE == "English" else [language_info['code'], 'en']
     
     start_date = parse(date_str, languages=language_list, settings={"PREFER_DATES_FROM":"past", "PREFER_MONTH_OF_YEAR": "first", 'PREFER_DAY_OF_MONTH': 'first'})
     end_date = parse(date_str, languages=language_list, settings={"PREFER_DATES_FROM":"past", "PREFER_MONTH_OF_YEAR": "last", 'PREFER_DAY_OF_MONTH': 'last'})
@@ -173,7 +180,7 @@ def get_all_associations(queries, n_choices=RETRIEVAL_NUM_CHOICES):
     print(query_result)
     all_associations = []
     for i, query_str in enumerate(query_strings):
-        language_list = ['en'] if LANGUAGE_PREFERENCE=="English" else ['en', language_dict[LANGUAGE_PREFERENCE]['code']]
+        language_list = ['en'] if LANGUAGE_PREFERENCE=="English" else [language_dict[LANGUAGE_PREFERENCE]['code'], 'en']
         dates = search_dates(query_str, languages=language_list, settings={"PREFER_DATES_FROM":"past"})
         if dates:
             time_factor = 1.5
@@ -181,9 +188,20 @@ def get_all_associations(queries, n_choices=RETRIEVAL_NUM_CHOICES):
             adj_factor = get_adjust_factor(double_associations, n_choices)
             print("adj_factor: ", adj_factor)
             associations = [(x,y,cal_score(z*adj_factor*time_factor, len(queries))) for x,y,z in double_associations[:n_choices//2]] # first half is still original results with distance penalty
-            date_str, _ = dates[-1]
-            start_date, end_date = generate_time_range(date_str)
-            new_query_str = query_str.replace(date_str, "")
+            
+            if len(dates) > 1:
+                start_date_str, _ = dates[-2]
+                end_date_str, _ = dates[-1]
+                start_date, end_date = parse_date_range(start_date_str, end_date_str)
+                start_index = query_str.find(start_date_str)
+                end_index = query_str.find(end_date_str, start_index + len(start_date_str))
+                new_query_str = query_str[:start_index] + query_str[end_index + len(end_date_str)]
+                print("new_query: ", new_query_str)
+            else:
+                date_str, _ = dates[-1]
+                start_date, end_date = generate_time_range(date_str)
+                new_query_str = query_str.replace(date_str, "")
+                            
             new_query_result = doc_manager.query_by_strings_with_time_range([new_query_str], n_results=n_choices*2, start_time=start_date, end_time=end_date)
             new_double_associations = [(metadata['doc_id'], metadata['doc_time'], distance) for metadata, distance in zip(new_query_result['metadatas'][0], new_query_result['distances'][0])]
             new_adj_factor = get_adjust_factor(new_double_associations, n_choices)
