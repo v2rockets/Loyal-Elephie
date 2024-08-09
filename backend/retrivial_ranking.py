@@ -195,7 +195,7 @@ def get_all_associations(queries, n_choices=RETRIEVAL_NUM_CHOICES):
                 start_date, end_date = parse_date_range(start_date_str, end_date_str)
                 start_index = query_str.find(start_date_str)
                 end_index = query_str.find(end_date_str, start_index + len(start_date_str))
-                new_query_str = query_str[:start_index] + query_str[end_index + len(end_date_str)]
+                new_query_str = query_str[:start_index] + query_str[end_index + len(end_date_str):]
                 print("new_query: ", new_query_str)
             else:
                 date_str, _ = dates[-1]
