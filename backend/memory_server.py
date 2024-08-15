@@ -260,6 +260,8 @@ async def create_chat_completion(
                 if extra_text:
                     chat_chunk.choices[0].delta.content = extra_text + chat_chunk.choices[0].delta.content
             s = chat_chunk.choices[0].delta.content
+            if not s:
+                chat_chunk.choices[0].delta.content = "" # avoid output null when stop
             chat_chunk.choices[0].finish_reason = None # avoid "stop" causing ref_text not received
             print(s,end='')
             yield dict(data=json.dumps(serialize_chat_chunk(chat_chunk)))
@@ -304,6 +306,8 @@ async def create_chat_completion(
                 nonlocal accumulated_content
                 output_state = OutputState.Input
                 for chat_chunk in chat_chunks:
+                    if chat_chunk.choices[0].finish_reason:
+                        break;
                     s = chat_chunk.choices[0].delta.content
                     print(s, end='')
                     accumulated_content += s
