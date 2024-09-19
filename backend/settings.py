@@ -14,9 +14,9 @@ CHAT_MAX_TOKEN = 400
 CHAT_PATH = '../md_website/chat_history'
 NOTE_PATH = '../md_website/notes'
 
-# If your MarkDown notebook is serving with HTTPS, setup this URL so that you can click into the notebook page attached on reference.
-CHAT_URL = 'https://localhost:3000/chat_history/' 
-NOTE_URL = 'https://localhost:3000/notes/'
+# If you're using an online Markdown notebook editor, set up this URL so you can click through to the notebook page in the "Reference".
+CHAT_URL = 'http://localhost:3000/chat_history/' 
+NOTE_URL = 'http://localhost:3000/notes/'
 
 # MULTILPLE_SYSTEM_PROMPTS is used to adjust different LLM backend
 # Some backends may not support multiple system prompts
