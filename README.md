@@ -8,7 +8,7 @@
 
 1. **🎛️ Controllable Memory:** Take control of Loyal Elephie's memory! You decide which moments to save, and you can easily edit the context as needed. It is your second-brain for episodic memory. ✍️
 
-2. **🔍 Hybrid Search:** Experience the powerful combination of Chroma and BM25 for efficient searches! It's also optimized for handling date-based queries. 📅
+2. **🔍 Hybrid Search:** Experience the powerful combination of Chroma and BM25 for efficient searches! It's also optimized for handling date-relevant queries. 📅
 
 3. **🔒 Secure Web Access:** With a built-in login feature, only authorized users can access your AI companion, ensuring your conversations remain private and secure over the internet. 🛡️
 
