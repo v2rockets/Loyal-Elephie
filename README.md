@@ -63,7 +63,7 @@ frontend/users.json
 }]
 ```
 
-**4. Install Backend Requirents**
+**4. Install Backend Requirements**
 
 ```bash
 cd backend
